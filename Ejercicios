@@ -1,0 +1,212 @@
+1
+
+using System;
+
+namespace cch
+{
+    public class Persona
+    {
+        public string nombre;
+        public string apellido;
+        public string cedula;
+        public int edad;
+
+
+
+        public Persona()
+        {
+            nombre = "Andy";
+            apellido = "Marmolejos";
+            cedula = "402-1259378-0";
+            edad = 18;
+        }
+
+       public void responsabilidad (){
+           Console.WriteLine("EL nombre es: "+nombre);
+           Console.WriteLine("EL apellido es: "+apellido);
+           Console.WriteLine("La cedula es: "+cedula);
+           Console.WriteLine("La edad es: "+edad);
+       }
+       public void Nombre() { 
+            Console.WriteLine("Escriba el Nombre");
+            nombre = Console.ReadLine();
+        } 
+        public string retornarNombre() { 
+            return nombre;
+        } 
+        public void Apellido() { 
+            Console.WriteLine("Escriba el Apellido");
+            apellido = Console.ReadLine();
+        } 
+
+        public String retornarApellido() { 
+            return apellido;
+        } 
+
+        public void Cedula() { 
+            Console.WriteLine("Escriba la Cedula");
+            cedula = Console.ReadLine();
+        } 
+
+        public string retornarCedula() { 
+            return cedula;
+        } 
+        
+        public void Edad() { 
+            Console.WriteLine("Escriba la edad");
+            edad = int.Parse(Console.ReadLine());
+        } 
+
+        public int retornarEdad() { 
+            return edad;
+        } 
+        
+    }
+
+     public class Profesor : Persona
+    {
+        int sueldo;
+
+        public Profesor()
+        {
+            sueldo = 14000;
+           
+        }
+
+        public void Sueldo() { 
+            Console.WriteLine("\nEscriba el sueldo");
+            sueldo = int.Parse(Console.ReadLine());
+        } 
+
+        public void imprimirSueldo (){
+           Console.WriteLine("\nEL sueldo es: "+sueldo);
+       }
+        
+    }
+
+    class program {
+        
+        public static void Main(string[] args){
+            Persona persona = new Persona();
+            
+            //METEDOSO PARA RETORNAR LOS VALORES
+            Console.WriteLine("\nMETODOS PARA RETORNAR LOS VALORES (ESTOS SON ESTATICOS O LOS VALORES POR DEFECTO)");
+            Console.WriteLine(persona.retornarNombre());
+            Console.WriteLine(persona.retornarApellido());
+            Console.WriteLine(persona.retornarCedula());
+            Console.WriteLine(persona.retornarEdad());
+
+            //METODOS PARA SETEAR NUEVOS VALORES
+            Console.WriteLine("\nMETODOS PARA SETEAR NUEVOS VALORES");
+            persona.Nombre();
+            persona.Apellido();
+            persona.Cedula();
+            persona.Edad();
+            Console.WriteLine("\nLOS NUEVOS VALORES SON:");
+            persona.responsabilidad();
+
+
+            Profesor profesor = new Profesor();
+            //METODO PARA SETEAR NUEVO SUELDO
+            profesor.Sueldo();
+            //METODO PARA MOSTRAR EL SUELDO(SI LLAMAMOS ESTE METODO ARRIBA MOSTRARA EL VALOR ESTATICO O POR DEFECTO QUE HAYA)
+            profesor.imprimirSueldo();
+        }
+    }
+}
+
+2**
+
+using System;
+
+namespace cch
+{
+    public class Contacto {
+
+        public string nombre;
+        public string apellido;
+        public string telefono;
+        public string direccion;
+
+
+
+        public Contacto(){
+            nombre = "Andy";
+            apellido = "Marmolejos";
+            telefono = "809-702-1805";
+            direccion = "Los Pinos de Hainamosa Central Calle N #1";
+        }
+
+        public void SetContacto() { 
+            Console.WriteLine("\nEscriba el Nombre");
+            nombre = Console.ReadLine();
+            Console.WriteLine("Escriba el apellido");
+            apellido = Console.ReadLine();
+            Console.WriteLine("Escriba el Telefono");
+            telefono = Console.ReadLine();
+            Console.WriteLine("Escriba el direccion");
+            direccion = Console.ReadLine();
+        } 
+
+        public void Saludar() { 
+            Console.WriteLine("\nHola, soy "+nombre+" "+apellido);
+            Console.WriteLine("Mi telefono es "+telefono);
+            Console.WriteLine("Mi direccion es "+direccion);
+        } 
+
+    }
+
+    class ProbarContacto {
+        
+        public static void Main(string[] args){
+            Contacto contacto1 = new Contacto();
+            Contacto contacto2 = new Contacto();
+            
+            //LLENAR LOS DATOS
+            Console.WriteLine("\nPrimer Contacto");
+            contacto1.SetContacto();
+            Console.WriteLine("\nSegundo Contacto");
+            contacto2.SetContacto();
+
+            //SALUDO
+            contacto1.Saludar();
+            contacto2.Saludar();
+        }
+    }
+}
+
+
+3**
+
+
+using System;
+
+namespace cch
+{
+    public class ClaseA {
+        public ClaseA(){
+            Console.WriteLine("Soy la clase A");
+        }
+    }
+
+    public class ClaseB:ClaseA {
+         public ClaseB(){
+            Console.WriteLine("Soy la clase B");
+        }
+    }
+
+    public class ClaseC:ClaseB {
+         public ClaseC(){
+            Console.WriteLine("Soy la clase C");
+        }
+    }
+
+    class program {
+        
+        public static void Main(string[] args){
+            
+            ClaseC clase = new ClaseC();
+
+        }
+    }
+}
